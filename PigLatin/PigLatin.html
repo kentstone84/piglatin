@@ -1,0 +1,69 @@
+<form id="form">
+    <label for="input">Enter a word:</label><br>
+    <input type="text" id="input"><br>
+    <button type="submit">Translate</button>
+  </form> 
+  <br>
+  <div id="output"></div>
+
+  <style type="text/css">
+/* Set the color of the links to a shade of pink */
+a {
+  color: #FFC0CB;
+}
+
+/* Add a hover effect to the links, making them turn a darker shade of pink on hover */
+a:hover {
+  color: #FF69B4;
+}
+
+/* Use the 'pig' font for the links */
+@import url('https://fonts.googleapis.com/css2?family=Pig&display=swap');
+a {
+  font-family: 'Pig', cursive;
+}
+
+/* Add a pig icon next to each link */
+a::before {
+  /* Use the 'pig' emoji as the icon */
+  content: "\1F437";
+  margin-right: 0.5em;
+}
+  </style>
+  
+  <!-- include JavaScript directly in HTML -->
+  <script>
+   const form = document.getElementById('form');
+const input = document.getElementById('input');
+const output = document.getElementById('output');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const word = input.value.trim();
+  const pigLatin = translateToPigLatin(word);
+
+  output.innerHTML = pigLatin;
+});
+
+function translateToPigLatin(word) {
+  if (!word) return '';
+
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  let pigLatin = '';
+
+  if (vowels.includes(word[0])) {
+    pigLatin = word + 'way';
+  } else {
+    let i = 0;
+    while (!vowels.includes(word[i])) {
+      i += 1;
+    }
+    pigLatin = word.slice(i) + word.slice(0, i) + 'ay';
+  }
+
+  return pigLatin;
+}
+
+  </script>
+  

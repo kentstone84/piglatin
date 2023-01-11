@@ -1,0 +1,26 @@
+<link rel="stylesheet" type="text/css" href="/path/to/style.css">
+
+/* Set the color of the links to a shade of pink */
+a {
+  color: #FFC0CB;
+}
+
+/* Add a hover effect to the links, making them turn a darker shade of pink on hover */
+a:hover {
+  color: #FF69B4;
+}
+
+/* Use the 'pig' font for the links */
+@import url('https://fonts.googleapis.com/css2?family=Pig&display=swap');
+a {
+  font-family: 'Pig', cursive;
+}
+
+/* Add a pig icon next to each link */
+a::before {
+  /* Use the 'pig' emoji as the icon */
+  content: "\1F437";
+  margin-right: 0.5em;
+}
+
+  
